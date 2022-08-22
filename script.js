@@ -1,5 +1,5 @@
 let qtdCartas = prompt('Com quantas cartas você quer jogar?');
-
+let contador = 0;
 let cartas = [`
         <div onclick="virarCartas(this)" class="carta-jogo carta-virada">
             <img src="imgs/MaisTails.gif" />
@@ -100,6 +100,7 @@ QuantidadeJgs();
 let verificaCartas = '';
 
 function virarCartas(clicada){
+    contador++;
     clicada.classList.remove('carta-virada');
     console.log(clicada);
     console.log(verificaCartas);
@@ -114,8 +115,6 @@ function virarCartas(clicada){
         verificaCartas = clicada.innerHTML;
     
         console.log(verificaCartas);
-        
-    
     
     setTimeout(voltaCartas, 5000);
 }
@@ -126,6 +125,15 @@ function voltaCartas(){
     verificaCartas = '';
 }
 
+
+function finalJogo(){
+    alert(`Você ganhou em ${contador} jogadas!`);
+    const reiniciar = prompt('Deseja reiniciar o jogo?');
+    if (reinciar === 'sim'){
+        qtdCartas = prompt('Com quantas cartas você quer jogar?');
+        QuantidadeJgs();
+    }
+}
 
 
 // se a carta for igual 
