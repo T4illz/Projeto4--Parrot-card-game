@@ -1,46 +1,46 @@
 let qtdCartas = prompt('Com quantas cartas você quer jogar?');
 
 let cartas = [`
-        <div class="carta-jogo">
+        <div onclick="virarCartas(this)" class="carta-jogo carta-virada">
             <img src="imgs/MaisTails.gif" />
         </div>`, 
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/Raid.gif" />
         </div>`, 
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/Tails-dançando.gif" />
         </div>`, 
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
             <img src="imgs/Tails-Follow.gif" />
         </div>`, 
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/Tailz-exe.gif" />
         </div>`,
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/Tailz.gif" />
         </div>`,
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/Voando.gif" />
         </div>`,
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/MaisTails.gif" />
         </div>`, 
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/Raid.gif" />
         </div>`, 
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/Tails-dançando.gif" />
         </div>`, 
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
             <img src="imgs/Tails-Follow.gif" />
         </div>`, 
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/Tailz-exe.gif" />
         </div>`,
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/Tailz.gif" />
         </div>`,
-        `<div class="carta-jogo">
+        `<div onclick="virarCartas(this)" class="carta-jogo carta-virada">
         <img src="imgs/Voando.gif" />
         </div>`
     ];
@@ -97,4 +97,38 @@ function QuantidadeJgs(){
 
 QuantidadeJgs();
 
+let verificaCartas = '';
+
+function virarCartas(clicada){
+    clicada.classList.remove('carta-virada');
+    console.log(clicada);
+    console.log(verificaCartas);
+
+    if (clicada.innerHTML === verificaCartas ){
+        
+        clicada.classList.add('carta-par');
+        verificaCartas = '';
+        console.log(clicada);
+    }
+
+        verificaCartas = clicada.innerHTML;
+    
+        console.log(verificaCartas);
+        
+    
+    
+    setTimeout(voltaCartas, 5000);
+}
+
+function voltaCartas(){
+    const voltar = document.querySelector('.guarda-cartas .carta-jogo');
+    voltar.classList.add('carta-virada');
+    verificaCartas = '';
+}
+
+
+
+// se a carta for igual 
+// adicionar class '.ok' e retirar carta-jogo'
+// se não, não fazer nada.
 

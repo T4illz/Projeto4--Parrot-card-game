@@ -36,12 +36,16 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 1s;
+    transform: rotatey(180deg);
 }
 
 .carta-jogo img{
     width: 100px;
     height: 100px;
     border-radius: 5px;
+    transition: all 2s;
+    transform: rotatey(180deg);
 }
 
 .carta-virada{
@@ -53,10 +57,31 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 2s;
+    transform: rotatey(180deg);
 }
 .carta-virada img{
     width: 100px;
     height: 100px;
     border-radius: 5px;
     display: none;
+    transition: all 2s;
+    transform: rotatey(180deg);
+}
+
+.carta-par {
+    background-color:#A7E9AF;
+    width: 117px;
+    height: 146px;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carta-par img{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
 }
