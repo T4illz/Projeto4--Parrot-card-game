@@ -44,7 +44,7 @@ let cartas = [`
         <img src="imgs/Voando.gif" />
         </div>`
     ];
-
+let pares = 0;
 cartas.sort(randomizando); 
 
 function randomizando(){
@@ -100,8 +100,10 @@ QuantidadeJgs();
 let verificaCartas = '';
 
 function virarCartas(clicada){
-    contador++;
-    clicada.classList.remove('carta-virada');
+    contador++; // contagem de jogadas.
+    
+    clicada.classList.toggle('carta-virada'); // desvira a carta
+    
     console.log(clicada);
     console.log(verificaCartas);
 
@@ -110,8 +112,10 @@ function virarCartas(clicada){
         clicada.classList.add('carta-par');
         verificaCartas = '';
         console.log(clicada);
+        pares++;
+        finalJogo();
+        return
     }
-
         verificaCartas = clicada.innerHTML;
     
         console.log(verificaCartas);
@@ -120,15 +124,23 @@ function virarCartas(clicada){
 }
 
 function voltaCartas(){
+
     const voltar = document.querySelector('.guarda-cartas .carta-jogo');
+    if (voltar !== null){
     voltar.classList.add('carta-virada');
     verificaCartas = '';
+    }
 }
+// se a carta for igual 
+// adicionar class '.carta-par' e retirar 'carta-virada'
+// se não, não fazer nada.
 
 
 function finalJogo(){
+    if(pares === 7){
     alert(`Você ganhou em ${contador} jogadas!`);
     const reiniciar = prompt('Deseja reiniciar o jogo?');
+    }
     if (reinciar === 'sim'){
         qtdCartas = prompt('Com quantas cartas você quer jogar?');
         QuantidadeJgs();
@@ -136,7 +148,4 @@ function finalJogo(){
 }
 
 
-// se a carta for igual 
-// adicionar class '.ok' e retirar carta-jogo'
-// se não, não fazer nada.
 
